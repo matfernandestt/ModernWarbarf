@@ -97,7 +97,7 @@ public class WorldMapController : MonoBehaviour
         if (hSpeed != 0 || zSpeed != 0)
         {
             var dir = new Vector3(GetHorizontalAxis(), 0, GetVerticalAxis());
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), Time.deltaTime * 10);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), Time.deltaTime * 15);
         }
     }
 
