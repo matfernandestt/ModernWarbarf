@@ -3,9 +3,18 @@
 public class BarfboyController : BaseMovement, IKnockbackable
 {
     [SerializeField] private Transform shootSource;
+    [SerializeField] private BaseCharacterAnimations baseAnim;
     [SerializeField] private BaseCharacterAnimationEvents animEvents;
     [SerializeField] private ObjectPool barfPool;
     [SerializeField] private float shootForce;
+
+    private bool stomping;
+
+    public bool Stomping
+    {
+        get => stomping;
+        set => stomping = value;
+    }
 
     private void OnEnable()
     {
@@ -21,6 +30,8 @@ public class BarfboyController : BaseMovement, IKnockbackable
     {
         ActionAttackNormal += BarfboyNormalAction;
         ActionAttackSpecial += SpecialAttack;
+        ActionStomp += Stomp;
+        ActionReleasedStomp += ReleasedStomp;
         ActionTaunt += TauntAction;
 
         animEvents.animationActionEvent += PlayerLoseGainControl;
@@ -30,6 +41,8 @@ public class BarfboyController : BaseMovement, IKnockbackable
     {
         ActionAttackNormal -= BarfboyNormalAction;
         ActionAttackSpecial -= SpecialAttack;
+        ActionStomp -= Stomp;
+        ActionReleasedStomp -= ReleasedStomp;
         ActionTaunt -= TauntAction;
 
         animEvents.animationActionEvent -= PlayerLoseGainControl;
@@ -54,8 +67,30 @@ public class BarfboyController : BaseMovement, IKnockbackable
         barfPool.ReturnObject(barf, 1f);
     }
 
+    private void Stomp()
+    {
+        baseAnim.Stomp();
+        stomping = true;
+        CanMoveHorizontally = false;
+
+        AddImpact(Vector3.down, 3000);
+    }
+
+    private void ReleasedStomp()
+    {
+        baseAnim.ReleaseStomp();
+        stomping = false;
+        CanMoveHorizontally = true;
+    }
+
     private void TauntAction()
     {
 
+    }
+
+    [ContextMenu("Impact Test")]
+    public void ImpactTest()
+    {
+        AddImpact(-transform.right + Vector3.up, 3000);
     }
 }

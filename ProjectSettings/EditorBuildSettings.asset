@@ -6,12 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SCN_PlayerDataModifier.unity
-    guid: e15e9b4ea40d54a44b7e77cbb9bd2907
-  - enabled: 0
-    path: Assets/Scenes/SCN_DialogueSystem.unity
-    guid: 560c05646226c0a4cad8b69bbea1d66f
-  - enabled: 0
+    path: Assets/Scenes/SCN_LevelSelect.unity
+    guid: 5e8e9b8055cc31e468b57a6650d56fe8
+  - enabled: 1
     path: Assets/Scenes/SCN_LevelTest.unity
     guid: 63fd5606ada0ee24caa0fb01866ee99d
   m_configObjects: {}

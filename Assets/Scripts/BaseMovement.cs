@@ -9,10 +9,14 @@ public class BaseMovement : MonoBehaviour
 
     public UnityAction ActionAttackNormal;
     public UnityAction ActionAttackSpecial;
+    public UnityAction ActionStomp;
+    public UnityAction ActionReleasedStomp;
     public UnityAction ActionTaunt;
 
     public AnimationCurve jumpCurve;
+    public bool CanMoveHorizontally = true;
 
+    [SerializeField] private Transform modelTransform;
     [SerializeField] private float jumpSpeed;
     [SerializeField] private float movementSpeed;
     [SerializeField] private float gravity;
@@ -26,7 +30,7 @@ public class BaseMovement : MonoBehaviour
     private bool stopInputs;
     private bool stopGravity;
 
-    private float characterMass = 5f;
+    private float characterMass = 50f;
     private Vector3 impactForce = Vector3.zero;
 
     public bool IsGrounded
@@ -46,20 +50,30 @@ public class BaseMovement : MonoBehaviour
         input = ReInput.players.GetPlayer(0);
         zPosInitial = transform.position.z;
         anim.SetBool("IsGrounded", false);
+
+        CanMoveHorizontally = true;
     }
 
     private void Update()
     {
-        Movement();
-        Jump();
+        if (CanMoveHorizontally)
+        {
+            Movement();
+            Jump();
+        }
         ApplyMovement();
 
         if (!stopInputs)
         {
-            InputCaptureActionAttackNormal();
-            InputCaptureActionAttackSpecial();
-            InputCaptureActionTaunt();
+            if (CanMoveHorizontally)
+            {
+                InputCaptureActionAttackNormal();
+                InputCaptureActionAttackSpecial();
+                InputCaptureActionTaunt();
+            }
+            InputCaptureActionStomp();
         }
+        InputCaptureActionReleasedStomp();
     }
 
     private void InputCaptureActionAttackNormal()
@@ -76,6 +90,24 @@ public class BaseMovement : MonoBehaviour
         {
             Debug.Log("pressed special");
             ActionAttackSpecial?.Invoke();
+        }
+    }
+
+    private void InputCaptureActionStomp()
+    {
+        if (GetNegativeVertical())
+        {
+            Debug.Log("pressed stomp");
+            ActionStomp?.Invoke();
+        }
+    }
+
+    private void InputCaptureActionReleasedStomp()
+    {
+        if (GetReleasedNegativeVertical())
+        {
+            Debug.Log("released stomp");
+            ActionReleasedStomp?.Invoke();
         }
     }
 
@@ -97,12 +129,12 @@ public class BaseMovement : MonoBehaviour
 
     private void CheckRotation()
     {
-        if (!stopInputs)
+        if (!stopInputs && !GameLevelManager.instance.EndedLevel)
         {
             if (hSpeed > 0)
                 transform.eulerAngles = transform.TransformDirection(new Vector3(0, 0, 0));
             else if (hSpeed < 0)
-                transform.eulerAngles = transform.TransformDirection(new Vector3(0, 180, 0));
+                transform.eulerAngles = transform.TransformDirection(new Vector3(0, 115, 0));
         }
     }
 
@@ -163,18 +195,11 @@ public class BaseMovement : MonoBehaviour
     {
         vSpeed = 0;
         direction.Normalize();
-        if (direction.y < 0)
-            direction.y = -direction.y;
+        /*if (direction.y < 0)
+            direction.y = -direction.y;*/
         impactForce += direction.normalized * force / characterMass;
         PlayerLoseControlUntilGrounded();
         PlayerStopGravity(.5f);
-    }
-
-    public void DirectionalDash(Vector3 direction, float force)
-    {
-        vSpeed = 0;
-        direction.Normalize();
-        impactForce += direction.normalized * force / characterMass;
     }
 
     #region Inputs
@@ -186,6 +211,16 @@ public class BaseMovement : MonoBehaviour
     private float GetVerticalAxis()
     {
         return input.GetAxisRaw("MoveVertical");
+    }
+
+    private bool GetNegativeVertical()
+    {
+        return input.GetNegativeButtonDown("MoveVertical");
+    }
+
+    private bool GetReleasedNegativeVertical()
+    {
+        return input.GetNegativeButtonUp("MoveVertical");
     }
 
     private bool GetJumpButton()

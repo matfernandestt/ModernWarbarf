@@ -1,7 +1,9 @@
-﻿using Rewired;
+﻿using System;
+using Rewired;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class WorldMapController : MonoBehaviour
 {
@@ -42,6 +44,16 @@ public class WorldMapController : MonoBehaviour
     {
         input = ReInput.players.GetPlayer(0);
         anim.SetBool("IsGrounded", false);
+    }
+
+    private void OnEnable()
+    {
+        ActionAttackSpecial += ActionButton;
+    }
+
+    private void OnDisable()
+    {
+        ActionAttackSpecial -= ActionButton;
     }
 
     private void Update()
@@ -110,6 +122,15 @@ public class WorldMapController : MonoBehaviour
 
         if (!stopGravity && !controller.isGrounded)
             vSpeed -= gravity * Time.deltaTime;
+    }
+
+    private void ActionButton()
+    {
+        string closestLevel = WorldMapHUD.instance.ClosestTouchedLevel;
+        if (!string.IsNullOrEmpty(closestLevel))
+        {
+            SceneManager.LoadScene(closestLevel);
+        }
     }
 
     private void ApplyMovement()

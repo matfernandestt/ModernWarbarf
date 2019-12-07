@@ -59,8 +59,6 @@ public class BaseCamera : MonoBehaviour
                 yield return new WaitForSeconds(.0001f);
             }
         }
-
-        Debug.Log("q");
         if (currentCoroutine != null)
             StopCoroutine(currentCoroutine);
         currentCoroutine = StartCoroutine(RepositionCamera());
