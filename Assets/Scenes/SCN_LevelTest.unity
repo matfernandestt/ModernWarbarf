@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -557,18 +557,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.3
       objectReference: {fileID: 0}
-    - target: {fileID: 2300000, guid: fca816d345eeb8446a3b47b809f9b5f0, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c6639e2cfa34e1d4eb207954ddef5a5c, type: 2}
-    - target: {fileID: 2300002, guid: fca816d345eeb8446a3b47b809f9b5f0, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: cbb9f5cdd561e0f46a3fbdc8f2953e4c, type: 2}
-    - target: {fileID: 9500000, guid: fca816d345eeb8446a3b47b809f9b5f0, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: aae9ab5a4160df645ae7bf63b494e65b, type: 2}
     - target: {fileID: 400004, guid: fca816d345eeb8446a3b47b809f9b5f0, type: 3}
       propertyPath: m_LocalPosition.y
       value: 6.183205
@@ -581,6 +569,18 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.00000027027647
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: fca816d345eeb8446a3b47b809f9b5f0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c6639e2cfa34e1d4eb207954ddef5a5c, type: 2}
+    - target: {fileID: 2300002, guid: fca816d345eeb8446a3b47b809f9b5f0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cbb9f5cdd561e0f46a3fbdc8f2953e4c, type: 2}
+    - target: {fileID: 9500000, guid: fca816d345eeb8446a3b47b809f9b5f0, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: aae9ab5a4160df645ae7bf63b494e65b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fca816d345eeb8446a3b47b809f9b5f0, type: 3}
 --- !u!4 &151066252 stripped
@@ -1540,7 +1540,7 @@ BoxCollider:
   m_GameObject: {fileID: 744928876}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
