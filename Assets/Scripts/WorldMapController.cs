@@ -27,6 +27,7 @@ public class WorldMapController : MonoBehaviour
     private float vSpeed;
     private bool stopInputs;
     private bool stopGravity;
+    private bool onLoadingLevel;
 
     public bool IsGrounded
     {
@@ -127,10 +128,19 @@ public class WorldMapController : MonoBehaviour
     private void ActionButton()
     {
         string closestLevel = WorldMapHUD.instance.ClosestTouchedLevel;
-        if (!string.IsNullOrEmpty(closestLevel))
+        if (!string.IsNullOrEmpty(closestLevel) && !onLoadingLevel)
         {
-            SceneManager.LoadScene(closestLevel);
+            onLoadingLevel = true;
+            stopInputs = true;
+            ScreenFader.instance.OnCloseFader += LoadLevel;
+            ScreenFader.instance.CloseFade();
         }
+    }
+
+    private void LoadLevel()
+    {
+        string closestLevel = WorldMapHUD.instance.ClosestTouchedLevel;
+        SceneManager.LoadScene(closestLevel);
     }
 
     private void ApplyMovement()

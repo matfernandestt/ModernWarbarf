@@ -2,11 +2,16 @@
 
 public class BarfboyController : BaseMovement, IKnockbackable
 {
+    [Space, Header("----------------------------------"), Space]
+    
+    [Header("Parameters")]
+    [SerializeField] private float shootForce;
+    
+    [Header("References")]
     [SerializeField] private Transform shootSource;
     [SerializeField] private BaseCharacterAnimations baseAnim;
     [SerializeField] private BaseCharacterAnimationEvents animEvents;
     [SerializeField] private ObjectPool barfPool;
-    [SerializeField] private float shootForce;
 
     private bool stomping;
 

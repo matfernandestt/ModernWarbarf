@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Mateus\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Mateus\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_ModernWarbarf.-689218059.00" t="ExcludeRecursive" />
+    <e p="D:\Projetos\ModernWarbarf_repo\ModernWarbarf" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Rewired" t="Include">
+          <e p="Extras" t="Include">
+            <e p="ControlMapper" t="Include">
+              <e p="Examples" t="Include">
+                <e p="ControlMapperDemo" t="Include">
+                  <e p="Scripts" t="Include">
+                    <e p="ControlMapperDemoMessage.cs" t="Include" />
+                  </e>
+                </e>
+              </e>
+              <e p="Scripts" t="Include">
+                <e p="ButtonInfo.cs" t="Include" />
+                <e p="CalibrationWindow.cs" t="Include" />
+                <e p="CanvasScalerExt.cs" t="Include" />
+                <e p="CanvasScalerFitter.cs" t="Include" />
+                <e p="ControlMapper.cs" t="Include" />
+                <e p="ControlMapper_Classes.cs" t="Include" />
+                <e p="ControlMapper_Enums.cs" t="Include" />
+                <e p="ControlMapper_InputGrid.cs" t="Include" />
+                <e p="ControlMapper_WindowManager.cs" t="Include" />
+                <e p="CustomButton.cs" t="Include" />
+                <e p="CustomSlider.cs" t="Include" />
+                <e p="CustomToggle.cs" t="Include" />
+                <e p="Editor" t="Include">
+                  <e p="ControlMapperInspector.cs" t="Include" />
+                  <e p="CustomButtonInspector.cs" t="Include" />
+                  <e p="CustomSliderInspector.cs" t="Include" />
+                  <e p="CustomToggleInspector.cs" t="Include" />
+                </e>
+                <e p="ICustomSelectable.cs" t="Include" />
+                <e p="InputBehaviorWindow.cs" t="Include" />
+                <e p="InputFieldInfo.cs" t="Include" />
+                <e p="InputRow.cs" t="Include" />
+                <e p="LanguageData.cs" t="Include" />
+                <e p="ScrollbarVisibilityHelper.cs" t="Include" />
+                <e p="ScrollRectSelectableChild.cs" t="Include" />
+                <e p="ThemedElement.cs" t="Include" />
+                <e p="ThemeSettings.cs" t="Include" />
+                <e p="ToggleInfo.cs" t="Include" />
+                <e p="UIControl.cs" t="Include" />
+                <e p="UIControlSet.cs" t="Include" />
+                <e p="UIElementInfo.cs" t="Include" />
+                <e p="UIGroup.cs" t="Include" />
+                <e p="UIImageHelper.cs" t="Include" />
+                <e p="UISelectionUtility.cs" t="Include" />
+                <e p="UISliderControl.cs" t="Include" />
+                <e p="UITools.cs" t="Include" />
+                <e p="Window.cs" t="Include" />
+              </e>
+            </e>
+            <e p="TouchControls" t="Include">
+              <e p="Examples" t="Include">
+                <e p="TouchControls1" t="Include">
+                  <e p="Scripts" t="Include">
+                    <e p="TouchControls1_ManipulateCube.cs" t="Include" />
+                  </e>
+                </e>
+              </e>
+              <e p="Scripts" t="Include">
+                <e p="Editor" t="Include">
+                  <e p="MenuCommands.cs" t="Include" />
+                </e>
+              </e>
+              <e p="Shaders" t="Include">
+                <e p="ColorShift.shader" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="Integration" t="Include">
+            <e p="UnityUI" t="Include">
+              <e p="Editor" t="Include">
+                <e p="RewiredStandaloneInputModuleInspector.cs" t="Include" />
+              </e>
+              <e p="PlayerPointerEventData.cs" t="Include" />
+              <e p="RewiredPointerInputModule.cs" t="Include" />
+              <e p="RewiredStandaloneInputModule.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Internal" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="ControllerTemplates" t="Include">
+                <e p="ControllerTemplates.cs" t="Include" />
+              </e>
+              <e p="DataStorage" t="Include">
+                <e p="UserDataStore_PlayerPrefs.cs" t="Include" />
+              </e>
+              <e p="Editor" t="Include">
+                <e p="CustomInspectors" t="Include">
+                  <e p="ControllerDataFilesInspector.cs" t="Include" />
+                  <e p="CustomInspector_External.cs" t="Include" />
+                  <e p="HardwareJoystickMapInspector.cs" t="Include" />
+                  <e p="HardwareJoystickTemplateMapInspector.cs" t="Include" />
+                  <e p="InitializerInspector.cs" t="Include" />
+                  <e p="InputManagerInspector.cs" t="Include" />
+                  <e p="PlayerControllerInspector.cs" t="Include" />
+                  <e p="PlayerMouseInspector.cs" t="Include" />
+                  <e p="UserDataStore_PlayerPrefsInspector.cs" t="Include" />
+                </e>
+                <e p="UnityEditorBridge.cs" t="Include" />
+              </e>
+              <e p="InputManager.cs" t="Include" />
+              <e p="Misc" t="Include">
+                <e p="ExternalTools.cs" t="Include" />
+              </e>
+              <e p="Platforms" t="Include">
+                <e p="Ouya" t="Include">
+                  <e p="OuyaInputSource.cs" t="Include" />
+                </e>
+              </e>
+            </e>
+          </e>
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="BarfboyController.cs" t="Include" />
+          <e p="BarfCopter.cs" t="Include" />
+          <e p="BarfCopterShoot.cs" t="Include" />
+          <e p="BarfFlyController.cs" t="Include" />
+          <e p="BarfShoot.cs" t="Include" />
+          <e p="BaseAutoScrollCamera.cs" t="Include" />
+          <e p="BaseCamera.cs" t="Include" />
+          <e p="BaseCharacterAnimationEvents.cs" t="Include" />
+          <e p="BaseCharacterAnimations.cs" t="Include" />
+          <e p="BaseMovement.cs" t="Include" />
+          <e p="BaseMovementAI.cs" t="Include" />
+          <e p="Editor" t="Include">
+            <e p="TestUtilities.cs" t="Include" />
+            <e p="Utilities.cs" t="Include" />
+          </e>
+          <e p="GameLevelManager.cs" t="Include" />
+          <e p="GenericAnimationEvents.cs" t="Include" />
+          <e p="IKnockbackable.cs" t="Include" />
+          <e p="ILinkedEvent.cs" t="Include" />
+          <e p="InteractableButton.cs" t="Include" />
+          <e p="LevelEndLine.cs" t="Include" />
+          <e p="LinkedEventRunner.cs" t="Include" />
+          <e p="MonsterMushroom.cs" t="Include" />
+          <e p="Object Pool" t="Include">
+            <e p="ObjectPool.cs" t="Include" />
+            <e p="PoolableObject.cs" t="Include" />
+          </e>
+          <e p="ScreenFader.cs" t="Include" />
+          <e p="ScreenTransitionImageEffect.cs" t="Include" />
+          <e p="SurroundingDetectorAI.cs" t="Include" />
+          <e p="SwordsmanController.cs" t="Include" />
+          <e p="TransparencyDetector.cs" t="Include" />
+          <e p="WorldMapCamera.cs" t="Include" />
+          <e p="WorldMapController.cs" t="Include" />
+          <e p="WorldMapHUD.cs" t="Include" />
+          <e p="WorldMapStage.cs" t="Include" />
+        </e>
+        <e p="Shaders" t="Include">
+          <e p="ScreenTransitionImageEffect.shader" t="Include" />
+          <e p="Toon.shader" t="Include" />
+        </e>
+        <e p="TextMesh Pro" t="Include">
+          <e p="Fonts" t="Include">
+            <e p="LiberationSans - OFL.txt" t="Include" />
+          </e>
+          <e p="Resources" t="Include">
+            <e p="LineBreaking Following Characters.txt" t="Include" />
+            <e p="LineBreaking Leading Characters.txt" t="Include" />
+            <e p="Shaders" t="Include">
+              <e p="TMP_Bitmap-Custom-Atlas.shader" t="Include" />
+              <e p="TMP_Bitmap-Mobile.shader" t="Include" />
+              <e p="TMP_Bitmap.shader" t="Include" />
+              <e p="TMP_SDF Overlay.shader" t="Include" />
+              <e p="TMP_SDF-Mobile Masking.shader" t="Include" />
+              <e p="TMP_SDF-Mobile Overlay.shader" t="Include" />
+              <e p="TMP_SDF-Mobile.shader" t="Include" />
+              <e p="TMP_SDF-Surface-Mobile.shader" t="Include" />
+              <e p="TMP_SDF-Surface.shader" t="Include" />
+              <e p="TMP_SDF.shader" t="Include" />
+              <e p="TMP_Sprite.shader" t="Include" />
+              <e p="TMPro.cginc" t="Include" />
+              <e p="TMPro_Properties.cginc" t="Include" />
+              <e p="TMPro_Surface.cginc" t="Include" />
+            </e>
+          </e>
+          <e p="Sprites" t="Include">
+            <e p="EmojiOne Attribution.txt" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="ModernWarbarf.sln" t="IncludeFlat" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>

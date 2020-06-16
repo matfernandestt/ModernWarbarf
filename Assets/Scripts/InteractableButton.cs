@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class InteractableButton : MonoBehaviour
 {
@@ -8,6 +9,17 @@ public class InteractableButton : MonoBehaviour
     private bool alreadyInteractedWithThisButton;
 
     private static readonly int ButtonPress = Animator.StringToHash("ButtonPress");
+    private static readonly int ButtonReset = Animator.StringToHash("ButtonReset");
+
+    private void OnEnable()
+    {
+        linkedEvent.OnRunEventBack += ResetingButton;
+    }
+    
+    private void OnDisable()
+    {
+        linkedEvent.OnRunEventBack -= ResetingButton;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -30,5 +42,11 @@ public class InteractableButton : MonoBehaviour
         alreadyInteractedWithThisButton = true;
         _anim.SetTrigger(ButtonPress);
         if(linkedEvent != null) linkedEvent.RunEvent();
+    }
+
+    public void ResetingButton()
+    {
+        _anim.SetTrigger(ButtonReset);
+        alreadyInteractedWithThisButton = false;
     }
 }

@@ -13,14 +13,16 @@ public class BaseMovement : MonoBehaviour
     public UnityAction ActionReleasedStomp;
     public UnityAction ActionTaunt;
 
+    [Header("Parameters")]
     public AnimationCurve jumpCurve;
     public bool CanMoveHorizontally = true;
-
-    [SerializeField] private Transform modelTransform;
+    
     [SerializeField] private float jumpSpeed;
     [SerializeField] private float movementSpeed;
     [SerializeField] private float gravity;
 
+    [Header("References")]
+    [SerializeField] private Transform modelTransform;
     [SerializeField] protected CharacterController controller;
     [SerializeField] protected Animator anim;
 
@@ -32,6 +34,9 @@ public class BaseMovement : MonoBehaviour
 
     private float characterMass = 50f;
     private Vector3 impactForce = Vector3.zero;
+    
+    private static readonly int Grounded = Animator.StringToHash("IsGrounded");
+    private static readonly int BasicMovement = Animator.StringToHash("BasicMovement");
 
     public bool IsGrounded
     {
@@ -49,7 +54,7 @@ public class BaseMovement : MonoBehaviour
     {
         input = ReInput.players.GetPlayer(0);
         zPosInitial = transform.position.z;
-        anim.SetBool("IsGrounded", false);
+        anim.SetBool(Grounded, false);
 
         CanMoveHorizontally = true;
     }
@@ -88,7 +93,6 @@ public class BaseMovement : MonoBehaviour
     {
         if (input.GetButtonDown("ActionAttackSpecial"))
         {
-            Debug.Log("pressed special");
             ActionAttackSpecial?.Invoke();
         }
     }
@@ -97,7 +101,6 @@ public class BaseMovement : MonoBehaviour
     {
         if (GetNegativeVertical())
         {
-            Debug.Log("pressed stomp");
             ActionStomp?.Invoke();
         }
     }
@@ -106,7 +109,6 @@ public class BaseMovement : MonoBehaviour
     {
         if (GetReleasedNegativeVertical())
         {
-            Debug.Log("released stomp");
             ActionReleasedStomp?.Invoke();
         }
     }
@@ -178,16 +180,16 @@ public class BaseMovement : MonoBehaviour
 
     private void AnimationChecks()
     {
-        float t = Mathf.Lerp(anim.GetFloat("BasicMovement"), Mathf.Abs(GetHorizontalAxis()), Time.deltaTime * 5);
-        anim.SetFloat("BasicMovement", t);
+        float t = Mathf.Lerp(anim.GetFloat(BasicMovement), Mathf.Abs(GetHorizontalAxis()), Time.deltaTime * 5);
+        anim.SetFloat(BasicMovement, t);
         
-        if (!controller.isGrounded && Mathf.Abs(GetHorizontalAxis()) != 0)
+        if (!controller.isGrounded && Mathf.Abs(GetHorizontalAxis()) > 0)
         {
-            anim.SetBool("IsGrounded", true);
+            anim.SetBool(Grounded, true);
         }
         else
         {
-            anim.SetBool("IsGrounded", controller.isGrounded);
+            anim.SetBool(Grounded, controller.isGrounded);
         }
     }
 
@@ -195,8 +197,6 @@ public class BaseMovement : MonoBehaviour
     {
         vSpeed = 0;
         direction.Normalize();
-        /*if (direction.y < 0)
-            direction.y = -direction.y;*/
         impactForce += direction.normalized * force / characterMass;
         PlayerLoseControlUntilGrounded();
         PlayerStopGravity(.5f);

@@ -11,7 +11,7 @@ public class TransparencyDetector : MonoBehaviour
 
         if (player != null)
         {
-            StartCoroutine(TransparencyOn());
+            StartCoroutine(TransparencyOff());
         }
     }
 
@@ -21,7 +21,7 @@ public class TransparencyDetector : MonoBehaviour
 
         if (player != null)
         {
-            StartCoroutine(TransparencyOff());
+            StartCoroutine(TransparencyOn());
         }
     }
 
@@ -31,7 +31,7 @@ public class TransparencyDetector : MonoBehaviour
         Color target = targetMaterial.material.color;
         while (progress < 1)
         {
-            progress += .01f;
+            progress += .05f;
             target = Color.Lerp(targetMaterial.material.color, new Color(target.r, target.g, target.b, progress), progress);
             targetMaterial.material.color = target;
             yield return new WaitForSeconds(.01f);
@@ -44,7 +44,7 @@ public class TransparencyDetector : MonoBehaviour
         Color target = targetMaterial.material.color;
         while (progress > 0)
         {
-            progress -= .01f;
+            progress -= .05f;
             target = Color.Lerp(targetMaterial.material.color, new Color(target.r, target.g, target.b, progress), 1 - progress);
             targetMaterial.material.color = target;
             yield return new WaitForSeconds(.01f);

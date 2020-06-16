@@ -15,6 +15,13 @@ public class GameLevelManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        
+        BeginLevel();
+    }
+
+    public void BeginLevel()
+    {
+        ScreenFader.instance.OpenFade();
     }
 
     public void EndLevel()
